@@ -1,9 +1,8 @@
-# detection_solution
+# Detection_solution
 
-### On going
 
-# 
-TEAM1_RobotsMali: PARC Engineers League
+
+# TEAM1_RobotsMali: PARC Engineers League
 
 Introduction:</BR>
     Le défi de cette phase de simulation consiste à créer un logiciel pour faire fonctionner le PARC AgRobot (Robot agricole) qui est un véhicule au sol sans pilote (UGV) équipé de différents capteurs.Les robots agricoles doivent être capables de naviguer dans les cultures et les terres agricoles, ce qui inclut de se déplacer de manière autonome dans les rangées de laitues sur un terrain accidenté dont les etapes se divise en deux taches qui sont: le deplacemnt du robot jusqu'à atteindre un but précis et la detection des coordonnées GPS de chaque herbe présent sur l'environnement, au cours du trajet le robot effectue des virages sur un terrain accidenté suivant un ittineraire précis  jusqu’à ce que l’emplacement du but soit atteint.

@@ -2,46 +2,193 @@
 
 ### On going
 
-# Task2-team1
+# 
+TEAM1_RobotsMali: PARC Engineers League
 
-1) Weeds Detection
-    For weed detection we used a color based Mask operating in the L*a*b color space to isolate weeds in the images.
-    Then we used the "bwconncomp" that performs connected component analysis to remove noise from the masked images (connected component that are to small to be weed)
-    We merged reminding pixels that are near enough to do so in order to get consistent objet that will be connsidered as weeds (otherwise all leaf of the weed would have been considered as one weed).
-    Then and after converting weeds linear pixels indices to pixels coordinates we found weeds (u,v) coordinates by calculating centroid of those coordinates lists
-    This process will be repeated for each image accepted by the task2_solution.m node
+Introduction:</BR>
+    Le défi de cette phase de simulation consiste à créer un logiciel pour faire fonctionner le PARC AgRobot (Robot agricole) qui est un véhicule au sol sans pilote (UGV) équipé de différents capteurs.Les robots agricoles doivent être capables de naviguer dans les cultures et les terres agricoles, ce qui inclut de se déplacer de manière autonome dans les rangées de laitues sur un terrain accidenté dont les etapes se divise en deux taches qui sont: le deplacemnt du robot jusqu'à atteindre un but précis et la detection des coordonnées GPS de chaque herbe présent sur l'environnement, au cours du trajet le robot effectue des virages sur un terrain accidenté suivant un ittineraire précis  jusqu’à ce que l’emplacement du but soit atteint.
+    
+L'utilisation de PARC AgRobot (Robot agricole)  en Afrique présente plusieurs avantages convaincants. Ces robots améliorent l'efficacité agricole, réduisent la pénurie de main-d'œuvre, augmentent la précision des opérations, s'adaptent aux conditions locales et réduisent l'utilisation excessive de produits chimiques. Cependant, l'adoption des robots en agriculture peut rencontrer des défis tels que le coût, l'accès à l'électricité, la formation des agriculteurs, etc. Malgré ces défis, l'utilisation de robots peut contribuer à améliorer la productivité et la durabilité de l'agriculture en Afrique.
 
-2) From image to camera frame (Perspective transformation)
-    We did camera calibration with the camera_calibrator node from the camera_calibration ROS package and obtained the camera, rectification and projection matices.
-    For this, we created a .sdf file simulating a chessboard in the gazebo.
-    Then we used made perspective projection using the obtained projection matrix by implementing this relation
-    *Put a photo here*
-    Considering the projection matrix to be the combination of camera matrix (A), Rotation|Translation matrix (R|t)
+    
 
-3) From Camera frame to base_link frame
-    We just used matlab rostf structure and existing transforms between cameras and base_link to transform weeds coordinates from Camera frame to base_link frame
+Pays de l’équipe: MALI
 
-4) From Base_link to world Frame 
-    Since there is no transform between base_link and world_frame available we created a transformation matrix mapping the rotation matrix and translation vector of the robot in world_frame at the time of taking the photo.
-    Then we just multiply this matrix by the homogeneous coordinates of weeds in base_link frame to get their coordinates in world_frame 
-# Task2-team2
+Noms des membres de l’équipe:
 
-1) Weeds Detection
-    For weed detection we used a color based Mask operating in the HSV color space to isolate weeds in the images.
-    Then we used the "bwconncomp" that performs connected component analysis to remove noise from the masked images (connected component that are to small to be weed)
-    We merged reminding pixels that are near enough to do so in order to get consistent objet that will be connsidered as weeds (otherwise all leaf of the weed would have been considered as one weed).
-    Then and after converting weeds linear pixels indices to pixels coordinates we found weeds (u,v) coordinates by calculating centroid of those coordinates lists
-    This process will be repeated for each image accepted by the task2_solution.m node
+    Nom et Prénom: 
+    Etudiant: 
+    Ecole: .
 
-2) From image to camera frame (Perspective transformation)
-    We did camera calibration with the camera_calibrator node from the camera_calibration ROS package and obtained the camera, rectification and projection matices.
-    For this, we created a .sdf file simulating a chessboard in the gazebo.
-    Then we used made perspective projection using the obtained projection matrix by implementing this relation
-    *Put a photo here*
-    Considering the projection matrix to be the combination of camera matrix (A), Rotation|Translation matrix (R|t)
+    Nom et Prénom: 
+    Etudiant : 
+    Ecole: .
 
-3) From Camera frame to base_link frame
-    We just used matlab rostf structure and existing transforms between cameras and base_link to transform weeds coordinates from Camera frame to base_link frame
+    Nom et Prénom: 
+    Etudiant:
+    Ecole:.
 
-4) From Base_link to world Frame
-    We just did a vector translation by adding the robot coordinates into world frame to weeds coordinates in base_link frame. 
+    Nom et Prénom: 
+    Ecole: .
+    Ecole:.
+    
+    Nom et Prénom: 
+    Etudiant:
+    Ecole:.
+    
+Dépendances
+    Les Packages nécessaires sont:    (requis Python version 3)
+
+    rospy: 
+         rospy est une bibliothèque client Python pure pour ROS. L’API client Rospy permet aux programmeurs Python d’interagir rapidement avec ROS Topics, Services et Parameters. La conception de rospy favorise la vitesse d’implémentation (i.developer time) sur les performances d’exécution afin que les algorithmes puissent être rapidement prototypés et testés au sein de ROS. Il est également idéal pour le code de chemin non critique, comme le code de configuration et d’initialisation. De nombreux outils ROS sont écrits en rose pour profiter des capacités d’introspection de type. De nombreux outils de ROS, tels que rostopic et rosservice, sont construits sur le dessus de rospy.
+
+    roscpp :
+        roscpp est une implémentation C++ de ROS. Il fournit une bibliothèque client qui permet aux programmeurs C++ d’interagir rapidement avec les sujets, les services et les paramètres ROS. roscpp est la bibliothèque client ROS la plus utilisée et est conçue pour être la bibliothèque haute performance pour ROS.
+
+    actionlib:
+       La pile actionlib fournit une interface normalisée pour l’interfaçage avec les tâches pré-emptables. 
+       Par exemple, déplacer la base vers un emplacement cible, effectuer un balayage laser et retourner le nuage de points résultant, détecter la poignée d’une porte, etc.
+
+    Dans tout grand système basé sur ROS, il y a des cas où quelqu’un voudrait envoyer une demande à un noeud pour effectuer une tâche, et aussi recevoir une réponse à la demande. Cela peut actuellement être réalisé via les services ROS.
+
+    Dans certains cas, cependant, si le service prend beaucoup de temps à exécuter, l’utilisateur peut vouloir la possibilité d’annuler la demande pendant l’exécution ou obtenir des commentaires périodiques sur la façon dont la demande progresse. Le paquet actionlib fournit des outils pour créer des serveurs qui exécutent des objectifs de longue durée qui peuvent être pré-exemptés. Il fournit également une interface client afin d’envoyer des requêtes au serveur.
+
+    std_msgs:
+       std_msgs contient des wrappers pour les types primitifs ROS, qui sont documentés dans la spécification msg. Il contient également le type Vide, qui est utile pour envoyer un signal vide. Cependant, ces types ne transmettent pas de sens sémantique sur leur contenu : chaque message a simplement un champ appelé "data". Par conséquent, alors que les messages dans ce paquet peuvent être utiles pour le prototypage rapide, ils ne sont PAS destinés à une utilisation "à long terme". Pour faciliter la documentation et la collaboration, nous recommandons d’utiliser les messages existants ou de créer de nouveaux messages qui fournissent des noms de champ significatifs.
+
+    Notez que ce paquet contient également les types "MultiArray", qui peuvent être utiles pour stocker des données de capteur. Cependant, la même mise en garde s’applique : c’est généralement "mieux" (dans le sens de rendre le code plus facile à comprendre, etc.) lorsque les développeurs utilisent ou créent des types de messages non génériques.
+
+    actionlib_msgs:
+      La pile actionlib fournit une interface normalisée pour l’interfaçage avec les tâches pré-emptables. Par exemple, déplacer la base vers un emplacement cible, effectuer un balayage laser et retourner le nuage de points résultant, détecter la poignée d’une porte, etc.
+
+    sensor_msgs:
+      Cet ensemble définit les messages pour les capteurs couramment utilisés, y compris les caméras et les télémètres à balayage laser.
+
+    geometry_msgs:
+       geometry_msgs fournit des messages pour les primitives géométriques courantes telles que les points, les vecteurs et les poses. Ces primitives sont conçues pour fournir un type de données commun et faciliter l’interopérabilité dans l’ensemble du système.
+
+    cv_bridge:
+      Il contient CvBridge, qui convertit les messages ROS Image et les images OpenCV.
+
+    tf:
+       tf est un paquet qui permet à l’utilisateur de garder une trace de plusieurs trames de coordonnées au fil du temps. tf maintient la relation entre les cadres de coordonnées dans une arborescence tamponnée dans le temps, et permet à l’utilisateur de transformer des points, des vecteurs, etc., entre deux cadres de coordonnées à tout moment souhaité.
+
+    action robot:
+    robot d’action est notre planificateur local qui permet de déplacer le robot d’un point à un autre.
+
+
+Tache 1:
+
+   Dans cette tâche, notre robot navigue en toute sécurité sur les trottoirs.
+   cette solution fonctionne seulement sur la route 1
+
+      Exécutez la commande suivante pour exécuter la tache 1
+      $ roslaunch task1_solution task1_solution.launch
+
+Tache 2:
+
+   Dans cette tâche, notre robot detecte la différence entre les herbes et les salades afin de localiser la position des herbes dans le champ.
+   cette solution fonctionne seulement sur toute les routes durant le trajet de deplacemment du robot.
+
+      Exécutez la commande suivante pour exécuter la tache 2
+      $ roslaunch task2_solution task2_solution.launch
+
+Défis rencontrés
+    Au sujet du défi, nous avons eu des problèmes avec les installations de ROS. Nous avons également eu des erreurs avec avec l'aquisition et le traitement des données, l'application de filtre dans un espace colorimétrique, la calibration de la camera, les transformation suvant les cadres de coordonnées spécifique, la localisation d'herbe dans diverce image fourni par les cameras, la difficultée d'utilisation des bibithèque comme : geometry_msgs, sensor_msgs, cv_bridge mais en fin de compte, une solution a été trouvée pour la configuration du fichier rplidar.xacro (parce que nous utilisons le CPU et non le GPU, avec le CPU, la machine prend beaucoup de temps lors de l’exécution d’une tâche à chaque fois ou parfois la machine se plante et elle devra être redémarrée.)
+    
+# TEAM2_RobotsMali: PARC Engineers League
+
+Introduction:</BR>
+    Le défi de cette phase de simulation consiste à créer un logiciel pour rendre autonome le PARC AgRobot (Robot agricole) qui est un véhicule terrestre autonome (UGV). Le robot doit être capable de se déplacer de manière autonome sur le terrain pour inspecter les cultures et détecter les mauvaises herbes. Il peut utiliser des capteurs tels que des caméras, des lidars et des modules GPS pour se déplacer avec précision dans un environnement dont les etapes se divise en deux taches qui sont: le deplacemnt du robot jusqu'à atteindre un but précis et la detection des coordonnées GPS de chaque herbe présent sur l'environnement, au cours du trajet le robot effectue des virages sur un terrain accidenté suivant un ittineraire précis  jusqu’à ce que l’emplacement du but soit atteint.
+    
+L'utilisation de PARC AgRobot (Robot agricole)  en Afrique présente plusieurs avantages convaincants. Le PARC AgRobot peut être programmé pour effectuer des tâches agricoles spécifiques telles que la plantation, l'arrosage, la fertilisation la récolte et la diminution de l'utilisation des produits chimiques. Ils peuvent travailler de manière plus rapide et plus efficace que les travailleurs humains, ce qui peut augmenter la production et la diminution du prix des produits agricole. Malgré ces défis, l'utilisation de robots peut contribuer à améliorer la productivité et la durabilité de l'agriculture en Afrique et dans le monde entier.
+
+    
+
+Pays de l’équipe: MALI
+
+Noms des membres de l’équipe:
+
+    Nom et Prénom: 
+    Etudiant: 
+    Ecole: .
+
+    Nom et Prénom: 
+    Etudiant : 
+    Ecole: .
+
+    Nom et Prénom: 
+    Etudiant:
+    Ecole:.
+
+    Nom et Prénom: 
+    Ecole: .
+    Ecole:.
+    
+    Nom et Prénom: 
+    Etudiant:
+    Ecole:.
+    
+Dépendances
+    Les Packages nécessaires sont:    (requis Python version 3)
+
+    rospy: 
+         rospy est une bibliothèque client Python pure pour ROS. L’API client Rospy permet aux programmeurs Python d’interagir rapidement avec ROS Topics, Services et Parameters. La conception de rospy favorise la vitesse d’implémentation (i.developer time) sur les performances d’exécution afin que les algorithmes puissent être rapidement prototypés et testés au sein de ROS. Il est également idéal pour le code de chemin non critique, comme le code de configuration et d’initialisation. De nombreux outils ROS sont écrits en rose pour profiter des capacités d’introspection de type. De nombreux outils de ROS, tels que rostopic et rosservice, sont construits sur le dessus de rospy.
+
+    roscpp :
+        roscpp est une implémentation C++ de ROS. Il fournit une bibliothèque client qui permet aux programmeurs C++ d’interagir rapidement avec les sujets, les services et les paramètres ROS. roscpp est la bibliothèque client ROS la plus utilisée et est conçue pour être la bibliothèque haute performance pour ROS.
+
+    actionlib:
+       La pile actionlib fournit une interface normalisée pour l’interfaçage avec les tâches pré-emptables. 
+       Par exemple, déplacer la base vers un emplacement cible, effectuer un balayage laser et retourner le nuage de points résultant, détecter la poignée d’une porte, etc.
+
+    Dans tout grand système basé sur ROS, il y a des cas où quelqu’un voudrait envoyer une demande à un noeud pour effectuer une tâche, et aussi recevoir une réponse à la demande. Cela peut actuellement être réalisé via les services ROS.
+
+    Dans certains cas, cependant, si le service prend beaucoup de temps à exécuter, l’utilisateur peut vouloir la possibilité d’annuler la demande pendant l’exécution ou obtenir des commentaires périodiques sur la façon dont la demande progresse. Le paquet actionlib fournit des outils pour créer des serveurs qui exécutent des objectifs de longue durée qui peuvent être pré-exemptés. Il fournit également une interface client afin d’envoyer des requêtes au serveur.
+
+    std_msgs:
+       std_msgs contient des wrappers pour les types primitifs ROS, qui sont documentés dans la spécification msg. Il contient également le type Vide, qui est utile pour envoyer un signal vide. Cependant, ces types ne transmettent pas de sens sémantique sur leur contenu : chaque message a simplement un champ appelé "data". Par conséquent, alors que les messages dans ce paquet peuvent être utiles pour le prototypage rapide, ils ne sont PAS destinés à une utilisation "à long terme". Pour faciliter la documentation et la collaboration, nous recommandons d’utiliser les messages existants ou de créer de nouveaux messages qui fournissent des noms de champ significatifs.
+
+    Notez que ce paquet contient également les types "MultiArray", qui peuvent être utiles pour stocker des données de capteur. Cependant, la même mise en garde s’applique : c’est généralement "mieux" (dans le sens de rendre le code plus facile à comprendre, etc.) lorsque les développeurs utilisent ou créent des types de messages non génériques.
+
+    actionlib_msgs:
+      La pile actionlib fournit une interface normalisée pour l’interfaçage avec les tâches pré-emptables. Par exemple, déplacer la base vers un emplacement cible, effectuer un balayage laser et retourner le nuage de points résultant, détecter la poignée d’une porte, etc.
+
+    sensor_msgs:
+      Cet ensemble définit les messages pour les capteurs couramment utilisés, y compris les caméras et les télémètres à balayage laser.
+
+    geometry_msgs:
+       geometry_msgs fournit des messages pour les primitives géométriques courantes telles que les points, les vecteurs et les poses. Ces primitives sont conçues pour fournir un type de données commun et faciliter l’interopérabilité dans l’ensemble du système.
+
+    cv_bridge:
+      Il contient CvBridge, qui convertit les messages ROS Image et les images OpenCV.
+
+    tf:
+       tf est un paquet qui permet à l’utilisateur de garder une trace de plusieurs trames de coordonnées au fil du temps. tf maintient la relation entre les cadres de coordonnées dans une arborescence tamponnée dans le temps, et permet à l’utilisateur de transformer des points, des vecteurs, etc., entre deux cadres de coordonnées à tout moment souhaité.
+
+    action robot:
+    robot d’action est notre planificateur local qui permet de déplacer le robot d’un point à un autre.
+
+
+Tache 1:
+
+   Dans cette tâche, notre robot autonome navigue en toute sécurité sur les trottoirs à travers differents procéssus succéssives.
+   Cette solution fonctionne seulement sur la route 1
+
+      Exécutez la commande suivante pour exécuter task1
+      $ roslaunch task1_solution task1_solution.launch
+
+
+Tache 2:
+
+   Dans cette tâche, notre robot détecte la différence entre les herbes et les salades afin de localiser la position des herbes dans le champ.
+   cette solution fonctionne sur toute les routes durant le deplacemment du robot.
+
+      Exécutez la commande suivante pour exécuter la tache 2
+      $ roslaunch task2_solution task2_solution.launch
+
+
+Défis rencontrés
+    Au sujet du défi, nous avons eu des problèmes avec les installations et la pris en main de ROS. Nous avons également eu des erreurs avec l'aquisition et le traitement des données, l'application de filtre de couleur, la calibration de la camera, les transformation suvant des cadres de coordonnées, la localisation d'herbe dans diverce image fourni par la camera,l'utilisation de different biblothèque comme: geometry_msgs, sensor_msgs, cv_bridge... mais en fin de compte, une solution a été trouvée pour la configuration du fichier rplidar.xacro (parce que nous utilisons le CPU et non le GPU)
+    Avec le CPU, la machine prend beaucoup de temps lors de l’exécution d’une tâche à chaque fois ou parfois la machine se plante et elle devra être redémarrée.
+    

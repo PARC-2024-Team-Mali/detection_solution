@@ -45,8 +45,8 @@ while ~moveStopped
     
     % Store images in the cell array if they have significant changes
     % We implemented this to speed up the process limitting the number of
-    % images to process, this will also prevent us from detecting more
-    % weeds than there is in the field.
+    % images to process, this will also prevent us from detecting lot of
+    % weeds more than one.
     % A threshold values as been calculated for each route and we choose
     % the mean of those values as the global threshold
     if leftDiff >= threshold || rightDiff >= threshold

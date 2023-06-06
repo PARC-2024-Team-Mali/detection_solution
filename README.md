@@ -76,6 +76,10 @@ Dépendances
     action robot:
     robot d’action est notre planificateur local qui permet de déplacer le robot d’un point à un autre.
 
+Mathlab:
+      MathLab (ou MATLAB) est un environnement de programmation et de calcul numérique largement utilisé dans divers domaines scientifiques et techniques. MathLab offre des fonctionnalités puissantes pour le traitement et l'analyse des données, ce qui permet de prendre des décisions plus éclairées dans les opérations agricoles.
+   
+
 
 Tache 1:
 
@@ -168,6 +172,9 @@ Dépendances
 
     action robot:
     robot d’action est notre planificateur local qui permet de déplacer le robot d’un point à un autre.
+
+Mathlab:
+      MathLab offre des outils de modélisation et de simulation qui permettent aux ingénieurs de concevoir et d'optimiser des systèmes robotiques agricoles. Vous pouvez créer des modèles mathématiques représentant le comportement des robots, des capteurs, des actionneurs, etc., et les simuler dans un environnement virtuel. Cela permet de prédire les performances du système, d'optimiser les paramètres et de minimiser les erreurs avant la mise en œuvre réelle.
 
 
 Tache 1:

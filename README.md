@@ -1,7 +1,5 @@
 # detection_solution
 
-### On going
-
 # Task2-team1
 
 1) Weeds Detection
@@ -14,8 +12,8 @@
 2) From image to camera frame (Perspective transformation)
     We did camera calibration with the camera_calibrator node from the camera_calibration ROS package and obtained the camera, rectification and projection matices.
     For this, we created a .sdf file simulating a chessboard in the gazebo.
-    Then we used made perspective projection using the obtained projection matrix by implementing this relation
-    *Put a photo here*
+    Then we used made perspective projection using the obtained projection matrix by implementing this relation:
+    [u, v, 1]' = A * [R|t] * [X, Y, Z, 1]'
     Considering the projection matrix to be the combination of camera matrix (A), Rotation|Translation matrix (R|t)
 
 3) From Camera frame to base_link frame
@@ -37,7 +35,7 @@
     We did camera calibration with the camera_calibrator node from the camera_calibration ROS package and obtained the camera, rectification and projection matices.
     For this, we created a .sdf file simulating a chessboard in the gazebo.
     Then we used made perspective projection using the obtained projection matrix by implementing this relation
-    *Put a photo here*
+    [u, v, 1]' = A * [R|t] * [X, Y, Z, 1]'
     Considering the projection matrix to be the combination of camera matrix (A), Rotation|Translation matrix (R|t)
 
 3) From Camera frame to base_link frame

@@ -22,7 +22,7 @@
 4) From Base_link to world Frame <br>
     Since there is no transform between base_link and world_frame available we created a transformation matrix mapping the rotation matrix and translation vector of the robot in world_frame at the time of taking the photo.
     Then we just multiply this matrix by the homogeneous coordinates of weeds in base_link frame to get their coordinates in world_frame 
-# Task2-team1
+# Task2-team2
 
 1) Weeds Detection<br>
     For weed detection we used a color based Mask operating in the HSV color space to isolate weeds in the images.
